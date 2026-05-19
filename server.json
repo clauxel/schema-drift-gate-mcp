@@ -1,0 +1,27 @@
+{
+  "name": "com.clauxel.schemadriftgate/schemadriftgate-mcp",
+  "title": "Schema Drift Gate MCP",
+  "description": "Paid remote MCP for schema drift checks, tool-schema approvals, compatibility receipts, breaking-change explanations, and release audit logs.",
+  "version": "1.0.0",
+  "websiteUrl": "https://schemadriftgate.clauxel.com/",
+  "documentationUrl": "https://github.com/clauxel/schema-drift-gate-mcp",
+  "serverCardUrl": "https://schemadriftgate.clauxel.com/server-card.json",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://schemadriftgate.clauxel.com/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Bearer token from the product website."
+        }
+      ]
+    }
+  ],
+  "tags": [
+    "mcp",
+    "schema-drift",
+    "tool-governance",
+    "remote-mcp"
+  ]
+}
