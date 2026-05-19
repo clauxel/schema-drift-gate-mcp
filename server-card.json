@@ -1,0 +1,244 @@
+{
+  "name": "schemadriftgate",
+  "title": "Schema Drift Gate",
+  "description": "Schema Drift Gate gives agents a remote MCP endpoint that checks tool schemas, approves breaking changes, and writes audit-ready receipts.",
+  "version": "1.0.0",
+  "websiteUrl": "https://schemadriftgate.clauxel.com/",
+  "documentationUrl": "https://schemadriftgate.clauxel.com/mcp/",
+  "endpointUrl": "https://schemadriftgate.clauxel.com/mcp",
+  "transport": "streamable-http",
+  "authentication": {
+    "type": "bearer",
+    "required": true,
+    "header": "Authorization",
+    "format": "Bearer <paid-token>"
+  },
+  "paidAccess": {
+    "required": true,
+    "checkoutUrl": "https://schemadriftgate.clauxel.com/api/agent-checkout",
+    "tokenStatusUrl": "https://schemadriftgate.clauxel.com/api/mcp-token/status",
+    "tokenClaimUrl": "https://schemadriftgate.clauxel.com/api/mcp-token/claim",
+    "defaultPlan": "team",
+    "pricing": [
+      {
+        "id": "solo",
+        "name": "Solo",
+        "monthlyUsd": 29
+      },
+      {
+        "id": "team",
+        "name": "Team",
+        "monthlyUsd": 99
+      },
+      {
+        "id": "scale",
+        "name": "Scale",
+        "monthlyUsd": 249
+      }
+    ]
+  },
+  "tools": [
+    {
+      "name": "check_schema_drift",
+      "description": "Schema Drift Gate check schema drift",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sample": {
+            "type": "string",
+            "description": "Workflow sample, schema, policy fixture, or agent output."
+          },
+          "context": {
+            "type": "string",
+            "description": "Optional review context."
+          }
+        },
+        "required": [
+          "sample"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "verdict": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "receipt_id": {
+            "type": "string"
+          },
+          "usage_units": {
+            "type": "integer"
+          },
+          "next_action": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "approve_tool_schema",
+      "description": "Schema Drift Gate approve tool schema",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sample": {
+            "type": "string",
+            "description": "Workflow sample, schema, policy fixture, or agent output."
+          },
+          "context": {
+            "type": "string",
+            "description": "Optional review context."
+          }
+        },
+        "required": [
+          "sample"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "verdict": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "receipt_id": {
+            "type": "string"
+          },
+          "usage_units": {
+            "type": "integer"
+          },
+          "next_action": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "record_tool_receipt",
+      "description": "Schema Drift Gate record tool receipt",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sample": {
+            "type": "string",
+            "description": "Workflow sample, schema, policy fixture, or agent output."
+          },
+          "context": {
+            "type": "string",
+            "description": "Optional review context."
+          }
+        },
+        "required": [
+          "sample"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "verdict": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "receipt_id": {
+            "type": "string"
+          },
+          "usage_units": {
+            "type": "integer"
+          },
+          "next_action": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "explain_breaking_change",
+      "description": "Schema Drift Gate explain breaking change",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sample": {
+            "type": "string",
+            "description": "Workflow sample, schema, policy fixture, or agent output."
+          },
+          "context": {
+            "type": "string",
+            "description": "Optional review context."
+          }
+        },
+        "required": [
+          "sample"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "verdict": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "receipt_id": {
+            "type": "string"
+          },
+          "usage_units": {
+            "type": "integer"
+          },
+          "next_action": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "export_audit_log",
+      "description": "Schema Drift Gate export audit log",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sample": {
+            "type": "string",
+            "description": "Workflow sample, schema, policy fixture, or agent output."
+          },
+          "context": {
+            "type": "string",
+            "description": "Optional review context."
+          }
+        },
+        "required": [
+          "sample"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "verdict": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "receipt_id": {
+            "type": "string"
+          },
+          "usage_units": {
+            "type": "integer"
+          },
+          "next_action": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  ],
+  "inputOutputSummary": "Each tool accepts structured workflow evidence and returns verdict, reason, receipt_id, usage_units, and next_action JSON.",
+  "supportEmail": "support@aigeamy.com"
+}
