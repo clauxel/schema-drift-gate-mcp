@@ -1,0 +1,12 @@
+# Schema Drift Gate MCP
+
+Paid remote MCP for schema drift checks, tool-schema approvals, compatibility receipts, breaking-change explanations, and release audit logs.
+
+Website: https://schemadriftgate.clauxel.com/
+MCP endpoint: https://schemadriftgate.clauxel.com/mcp
+Server card: https://schemadriftgate.clauxel.com/server-card.json
+Docs: https://github.com/clauxel/schema-drift-gate-mcp
+
+Use case: Block breaking MCP tool-schema changes before agents call the wrong interface.
+Authentication: Bearer token required for production use.
+Tools: check_schema_drift, approve_tool_schema, record_tool_receipt, explain_breaking_change, export_audit_log
